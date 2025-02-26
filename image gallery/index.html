@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="gallery-wrap">
+    <img src="../image gallery/images/back.png"  id="backbtn" alt="">
+    <div class="gallery">
+      <div>
+        <img src="../image gallery/images/image-1.png" alt="">
+        <img src="../image gallery/images/image-2.png" alt="">
+        <img src="../image gallery/images/image-3.png" alt="">
+  
+      </div>
+      <div>
+        <img src="../image gallery/images/image-4.png" alt="">
+        <img src="../image gallery/images/image-5.png" alt="">
+        <img src="../image gallery/images/image-6.png" alt="">
+  
+      </div>
+      
+    </div>
+    <img src="../image gallery/images/next.png" id="nextbtn" alt="">
+
+
+  </div>
+
+
+ <script>
+  let gallery=document.querySelector(".gallery");
+  let backbtn=document.querySelector("#backbtn");
+  let nextbtn=document.querySelector("#nextbtn");
+
+  // gallery.addEventListener('wheel',function(evt){
+  //   evt.preventDefault();
+  //   if(evt.deltaY>0){
+  //     gallery.scrollLeft+=300;
+
+  //   }else{
+  //     gallery.scrollLef-=300;
+  //   }
+  //  })
+  
+
+// Add event listener for the mouse wheel event
+gallery.addEventListener('wheel', function(event) {
+  // If the wheel is scrolled up (deltaY < 0), move the gallery left
+  // If the wheel is scrolled down (deltaY > 0), move the gallery right
+  if (event.deltaY > 0) {
+    gallery.scrollLeft += 300;  // Scroll 300px to the right (you can adjust this)
+  } else {
+    gallery.scrollLeft -= 300;  // Scroll 300px to the left (you can adjust this)
+  }
+  
+  // Prevent the default scroll behavior
+  event.preventDefault();
+});
+
+//ading functionality to buttons
+backbtn.addEventListener('click',function(){
+   gallery.scrollLeft +=300;
+})
+nextbtn.addEventListener("click",function(){
+  
+   gallery.scrollLeft -=100;
+})
+
+
+ </script>
+</body>
+</html>

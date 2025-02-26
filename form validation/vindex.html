@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form validation</title>
+  <link rel="stylesheet" href="vstyle.css">
+</head>
+<body>
+  
+  <div class="container">
+    <div class="input-box">
+      <label for="name-input">Full Name</label>
+      <input type="text" placeholder="Full Name" id="name-input"  onkeyup="validname()"  >
+      <span id="name-error" ></span>
+    </div>
+    <br>
+    <div class="input-box">
+      <label for="phone-input">Phone NO</label>
+      <input type="tel" placeholder="Full No" id="phone-input" onkeyup="validphone()" >
+      <span id="phone-error" ></span>
+
+    </div>
+    <br>
+    <div class="input-box">
+      <label for="Email-input">Email id </label>
+      <input type="email" placeholder="Email" id="Email-input"  onkeyup="validemail()" >
+      <span id="Email-error" ></span>
+
+    </div>
+    <br>
+    <div class="input-box">
+      <label for="text-input">Write Message</label>
+      <textarea rows="4" cols="50" id="text-input"    onkeyup="validtextarea()" ></textarea>
+      <span id="text-error" ></span>
+
+    </div>
+    <br>
+
+    <button id="btn"  onclick=" return validform()" >Submit</button>
+    <span id="form-error" ></span>
+
+  </div>
+
+
+  <script src="vscript.js" ></script>
+</body>
+</html>

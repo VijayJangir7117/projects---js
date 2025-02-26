@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="quote-box">
+    <h2>Quote of the day</h2>
+    <blockquote id="quote" >Loading...</blockquote>
+    <span id="author" >loading...</span>
+    <div>
+      <button onclick=" getquote(api_Url);" >New Quote</button>
+      <button><img src="Twitter-Logo-700x394.webp" alt="">      Tweet</button>
+    </div>
+  </div>
+  <script>
+ const quote= document.querySelector("#quote")
+ const author= document.querySelector("#author")
+
+  const api_Url = "https://api.allorigins.win/get?url=https://zenquotes.io/api/random";
+
+    async function getquote(url){
+    const response=await fetch(url);
+    var data=await response.json();
+    var quotedata=await JSON.parse(data.contents)
+    
+    quote.innerHTML=quotedata[0].q;
+    author.innerHTML=quotedata[0].a
+    }
+    
+  </script>
+</body>
+</html>
+
+ 

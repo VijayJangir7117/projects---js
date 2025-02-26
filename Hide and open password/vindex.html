@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=
+  , initial-scale=1.0">
+  <title>hide and show password</title>
+  <link rel="stylesheet" href="vstyle.css">
+</head>
+<body>
+  <div class="input-box">
+    <input type="password" placeholder="type your password" id="inputbox">
+    <img src="eye-close.png" alt=""  id="eyeicon" >
+
+
+  </div>
+
+<script>
+  let inputbox=document.querySelector("#inputbox");
+  let eyeicon=document.querySelector("#eyeicon");
+
+  eyeicon.onclick=function(){
+    if(inputbox.type=="password"){
+      inputbox.type='text';
+      eyeicon.src="eye-open.png";
+    }else{
+      inputbox.type="password";
+      eyeicon.src="eye-close.png";
+
+    }
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music System</title>
+   
+  <link rel="stylesheet" href="vstyle.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <div class="music-system">
+      <img src="../music system/468-thumbnail.png" alt="">
+      <audio id="song" controls>
+      <source src="Chaand Baaliyan - Aditya A(MyMp3Song).mp3" >
+      </audio>
+
+      <input type="range"  value="0"  id="progress" >
+
+    <div class="controls">
+       <div> <i class="fas fa-backward" ></i></div>
+
+       <div><i class="fas fa-play" id="ctrl" onclick="PlayPause()"></i>
+       </div> 
+
+       <div><i class="fas fa-forward"></i></div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+  let progress=document.querySelector('#progress')
+  let song=document.querySelector('#song')
+  let ctrl=document.querySelector('#ctrl')
+
+  song.onloadedmetedata=function(){
+    progress.max=song.duration;
+    progress.value=song.currentTime;
+  }
+  function PlayPause(){
+    if(ctrl.classList.contains("fa-play")){
+      song.pause();
+      ctrl.classList.remove('fa-play');
+      ctrl.classList.add('fa-pause');
+    }else{
+      song.play();
+      ctrl.classList.add('fa-play');
+      ctrl.classList.remove('fa-pause');
+      
+    }
+    
+    
+  }
+  if(song.play()){
+    setInterval(()=>{
+      progress.value=song.currentTime;
+    },500)
+  }
+  progress.onchange=function(){
+    song.pause();
+    song.currentTime=progress.value;
+    ctrl.classList.remove('fa-play');
+    ctrl.classList.add('fa-pause');
+
+    
+  }
+   
+
+</script>
+
+</body>
+</html>

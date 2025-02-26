@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Notification</title>
+  <link rel="stylesheet" href="vstyle.css">
+</head>
+<body>
+  <div class="container">
+    <button class="btn" onclick="showMsg(success)" >success</button>
+    <button class="btn" onclick="showMsg(error)" >Error</button>
+    <button class="btn" onclick="showMsg(invalid)" >Invalid</button>
+
+  </div>
+
+  <div class="toast-box"></div>
+
+  <script>
+    let success=" ✔️  successfully completed";
+    let error=" ❌ error in the processes";
+    let invalid=" ‼ this is invalid";
+    let toastbox=document.querySelector('.toast-box');
+    function showMsg(msg){
+      let toast=document.createElement('div');
+      toast.classList.add( 'toast');
+      toast.innerText=msg;
+      toastbox.appendChild(toast);
+
+      setTimeout(()=>{
+        toast.remove('toast');
+      },5000)
+      
+      if(msg.includes('error')){
+          toast.classList.add('error');
+      }
+      if(msg.includes('invalid')){
+          toast.classList.add('invalid');
+      }
+      
+
+    }
+  </script>
+  
+</body>
+</html>
